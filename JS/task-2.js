@@ -9,8 +9,6 @@ const ingredients = [
 
 const ingredientsList = document.querySelector('ul#ingredients');
 
-
-
 // const li1 = document.createElement('li');
 // const li2 = document.createElement('li');
 // const li3 = document.createElement('li');
