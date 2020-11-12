@@ -3,7 +3,10 @@ const ref = {
     nameOutput : document.querySelector('#name-output')
 };
 
+ref.nameInput.addEventListener('input', e => {
+    ref.nameOutput.textContent = e.target.value;
+    if (e.target.value.length < 1) {
+       ref.nameOutput.textContent = 'незнакомец'
+   }
+});
 
-console.log(ref.nameOutput.textContent);
-
-ref.nameInput.addEventListener('input', e => { ref.nameOutput.textContent = e.target.value;});
