@@ -7,6 +7,11 @@ const ref = {
 };
 
 
+const renderValue = function () {
+    ref.valueRef.textContent = counterValue;
+};
+
+
 const decrement = function () {
     counterValue -= 1;  
     renderValue();
@@ -19,10 +24,10 @@ const increment = function () {
     
 };
 
-const renderValue = function () {
-    ref.valueRef.textContent = counterValue;
-}
+
 
 ref.buttonDecrementRef.addEventListener('click', decrement);
 ref.buttonIncrementRef.addEventListener('click', increment);
+
+
 
