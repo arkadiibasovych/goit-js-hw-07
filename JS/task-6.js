@@ -2,13 +2,10 @@
 
 const inputRef = document.querySelector('#validation-input');
 
-const trueLength = Number(inputRef.dataLength = '6');
+const trueLength = Number(inputRef.dataset.length);
 
 
-
-inputRef.addEventListener('change', e => {
-    
-
+const handleAddClass = function (e) {
     inputRef.classList.add('invalid');
     
 
@@ -16,7 +13,9 @@ inputRef.addEventListener('change', e => {
          inputRef.classList.remove('invalid');
          inputRef.classList.add('valid');
     }
-    
-})
+}
+
+
+inputRef.addEventListener('blur', handleAddClass)
    
 
