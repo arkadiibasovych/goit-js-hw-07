@@ -5,23 +5,60 @@ const ref = {
     boxes: document.querySelector('#boxes')
 };
 
-const minValue = Number(ref.number.min);
-const maxValue = Number(ref.number.max);
+
+// получаем количество создаваемых дивов
+let amount = 0;
 
 const getValue = function (e) {
+
+const minValue = Number(ref.number.min);
+const maxValue = Number(ref.number.max);   
     
-   let value = Number(e.target.value);
-    if (value > maxValue) {
-        value = maxValue;
+  amount = Number(e.target.value);
+    
+    if (amount > maxValue) {
+        amount = maxValue;
     };
 
-     if (value < minValue) {
-        value = minValue;
+     if (amount < minValue) {
+        amount = minValue;
     }
 
-    console.log(value)
+    return (amount);
 
-    
 }
+
+
 ref.number.addEventListener('change', getValue);
 
+
+// создание дивов внутри <div id="boxes"</div>
+
+const getColor = function(){
+    return '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase();
+}
+
+
+const createBoxes = function () {
+    for (let i = 0; i < (amount); i += 1) {
+        let divSize = 30;
+        const box = document.createElement('div');
+        box.setAttribute('style', `width: ${divSize + i*10}px; height:${divSize + i*10}px; background-color: ${getColor()}`);
+        ref.boxes.appendChild(box);
+
+    }
+}
+
+
+
+ref.renderButton.addEventListener('click', createBoxes)
+
+
+
+// удалаение контента внутри <div id="boxes"</div>
+
+const destroyBoxes = function () {
+    ref.boxes.textContent = '';
+}
+
+ref.destroyButton.addEventListener('click', destroyBoxes)
